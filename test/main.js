@@ -72,9 +72,9 @@ class Pcs {
 }
 
 const pcsArray = [];
-pcsArray.push(new Pcs("iPhone 13", "1200", "5"));
-pcsArray.push(new Pcs("iPhone 12", "1100", "3"));
-pcsArray.push(new Pcs("iPhone 11", "1000", "0"));
+pcsArray.push(new Pcs("i7", "2400", "5"));
+pcsArray.push(new Pcs("i5", "1800", "3"));
+pcsArray.push(new Pcs("i3", "1300", "0"));
 
 
 
@@ -86,9 +86,9 @@ console.log(pcsArray);
 
 const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
  
-    cantCelulares = celularesArray.length;
-    cantTablets = tabletsArray.length;
-    cantPC = pcsArray.length;
+    let cantCelulares = celularesArray.length;
+    let cantTablets = tabletsArray.length;
+    let cantPC = pcsArray.length;
 
     opcion = prompt("Ingrese 1 para ver el Stock de Celulares \nIngrese 2 para ver el Stock de Tablets \nIngrese 3 para ver el Stock de PC");
 
@@ -120,7 +120,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
                 return "No hay unidades disponibles en Stock"
             }
         break;
-    
+
         default:
             return "Producto no disponible";
         break;
