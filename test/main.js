@@ -86,46 +86,46 @@ console.log(pcsArray);
 
 const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
  
-    let cantCelulares = celularesArray.length;
-    let cantTablets = tabletsArray.length;
-    let cantPC = pcsArray.length;
+    cantCelulares = celularesArray.length;
+    cantTablets = tabletsArray.length;
+    cantPC = pcsArray.length;
 
     opcion = prompt("Ingrese 1 para ver el Stock de Celulares \nIngrese 2 para ver el Stock de Tablets \nIngrese 3 para ver el Stock de PC");
 
+    while(opcion >=1 || opcion <=3){    
+        switch (opcion) {
+            case "1":
+                if(cantCelulares > 0){
+                    return `Hay ${cantCelulares} unidades en Stock`;
+                }
+                else{
+                    return "No hay unidades disponibles en Stock"
+                }
+            break;
+        
+            case "2":
+                if(cantTablets > 0){
+                    return `Hay ${cantTablets} unidades en Stock`;
+                }
+                else{
+                    return "No hay unidades disponibles en Stock"
+                }
+            break;
+        
+            case "3":
+                if(cantPC > 0){
+                    return `Hay ${cantPC} unidades en Stock`;
+                }
+                else{
+                    return "No hay unidades disponibles en Stock"
+                }
+            break;
 
-    switch (opcion) {
-        case "1":
-            if(cantCelulares > 0){
-                return `Hay ${cantCelulares} unidades en Stock`;
-            }
-            else{
-                return "No hay unidades disponibles en Stock"
-            }
-        break;
-    
-        case "2":
-            if(cantTablets > 0){
-                return `Hay ${cantTablets} unidades en Stock`;
-            }
-            else{
-                return "No hay unidades disponibles en Stock"
-            }
-        break;
-    
-        case "3":
-            if(cantPC > 0){
-                return `Hay ${cantPC} unidades en Stock`;
-            }
-            else{
-                return "No hay unidades disponibles en Stock"
-            }
-        break;
-
-        default:
-            return "Producto no disponible";
-        break;
+            default:
+                return "Producto no disponible";
+            break;
         }
-
+    }              
 } 
 
 alert(controlStock())
