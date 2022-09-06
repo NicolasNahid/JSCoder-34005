@@ -1,5 +1,6 @@
 class Celulares {
-    constructor(modelo ,precio, cantidad) {
+    constructor(id, modelo ,precio, cantidad) {
+        this.id = parseInt(id);
         this.modelo = modelo.toUpperCase();
         this.precio = parseFloat(precio);
         this.cantidad = parseInt(cantidad);
@@ -15,9 +16,9 @@ class Celulares {
 }
 
 const celularesArray = [];
-celularesArray.push(new Celulares("iPhone 13", "1200", "5"));
-celularesArray.push(new Celulares("iPhone 12", "1100", "3"));
-celularesArray.push(new Celulares("iPhone 11", "1000", "0"));
+celularesArray.push(new Celulares("1", "iPhone 13", "1200", "5"));
+celularesArray.push(new Celulares("2", "iPhone 12", "1100", "3"));
+celularesArray.push(new Celulares("3", "iPhone 11", "1000", "0"));
 
 
 
@@ -27,7 +28,8 @@ for (const celular of celularesArray)
 console.log(celularesArray);
 
 class Tablets {
-    constructor(modelo ,precio, cantidad) {
+    constructor(id, modelo ,precio, cantidad) {
+        this.id = parseInt(id);
         this.modelo = modelo.toUpperCase();
         this.precio = parseFloat(precio);
         this.cantidad = parseInt(cantidad);
@@ -43,9 +45,9 @@ class Tablets {
 }
 
 const tabletsArray = [];
-tabletsArray.push(new Tablets("Samsung A20", "500", "5"));
-tabletsArray.push(new Tablets("Samsung A30", "700", "3"));
-tabletsArray.push(new Tablets("Samsung A10", "400", "0"));
+tabletsArray.push(new Tablets("1", "Samsung A20", "500", "5"));
+tabletsArray.push(new Tablets("2", "Samsung A30", "700", "3"));
+tabletsArray.push(new Tablets("3", "Samsung A10", "400", "0"));
 
 
 
@@ -56,7 +58,8 @@ console.log(tabletsArray);
 
 
 class Pcs {
-    constructor(modelo ,precio, cantidad) {
+    constructor(id, modelo ,precio, cantidad) {
+        this.id = parseInt(id);
         this.modelo = modelo.toUpperCase();
         this.precio = parseFloat(precio);
         this.cantidad = parseInt(cantidad);
@@ -72,9 +75,9 @@ class Pcs {
 }
 
 const pcsArray = [];
-pcsArray.push(new Pcs("i7", "2400", "5"));
-pcsArray.push(new Pcs("i5", "1800", "3"));
-pcsArray.push(new Pcs("i3", "1300", "0"));
+pcsArray.push(new Pcs("1", "i7", "2400", "5"));
+pcsArray.push(new Pcs("2", "i5", "1800", "3"));
+pcsArray.push(new Pcs("3", "i3", "1300", "0"));
 
 
 
@@ -96,7 +99,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
         switch (opcion) {
             case "1":
                 if(cantCelulares > 0){
-                    return `Hay ${cantCelulares} unidades en Stock`;
+                    return Swal.fire(`${JSON.stringify(celularesArray)}`);
                 }
                 else{
                     return "No hay unidades disponibles en Stock"
@@ -105,7 +108,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
         
             case "2":
                 if(cantTablets > 0){
-                    return `Hay ${cantTablets} unidades en Stock`;
+                    return Swal.fire(`${JSON.stringify(tabletsArray)}`);
                 }
                 else{
                     return "No hay unidades disponibles en Stock"
@@ -114,7 +117,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
         
             case "3":
                 if(cantPC > 0){
-                    return `Hay ${cantPC} unidades en Stock`;
+                    return Swal.fire(`${JSON.stringify(pcsArray)}`);
                 }
                 else{
                     return "No hay unidades disponibles en Stock"
@@ -128,4 +131,4 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
     }              
 } 
 
-alert(controlStock())
+controlStock()
