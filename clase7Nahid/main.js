@@ -102,7 +102,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
                     return Swal.fire(`${JSON.stringify(celularesArray)}`);
                 }
                 else{
-                    return "No hay unidades disponibles en Stock"
+                    return alert("No hay unidades disponibles en Stock");
                 }
             break;
         
@@ -111,7 +111,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
                     return Swal.fire(`${JSON.stringify(tabletsArray)}`);
                 }
                 else{
-                    return "No hay unidades disponibles en Stock"
+                    return alert("No hay unidades disponibles en Stock");
                 }
             break;
         
@@ -120,15 +120,35 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
                     return Swal.fire(`${JSON.stringify(pcsArray)}`);
                 }
                 else{
-                    return "No hay unidades disponibles en Stock"
+                    return alert("No hay unidades disponibles en Stock");
                 }
             break;
 
             default:
-                return "Producto no disponible";
+                return alert("Producto no disponible");
             break;
         }
     }              
 } 
 
-controlStock()
+
+
+
+
+const buscadorNombre = (stockGeneral, opcion) => {
+
+    stockGeneral = [];
+    stockGeneral.concat(celularesArray, tabletsArray, pcsArray);
+
+    // opcion = toUpperCase.prompt("x")
+    opcion = prompt("Ingrese el nombre del/los productos a buscar")
+    let resultado = stockGeneral.filter(function(filtro) {
+        return filtro.modelo == opcion.toUpperCase(); }); 
+    alert(resultado)
+    
+
+    
+}
+
+
+// console.log(controlStockGeneral);
