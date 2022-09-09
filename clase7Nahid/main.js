@@ -137,18 +137,23 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
 
 const buscadorNombre = (stockGeneral, opcion) => {
 
-    stockGeneral = [];
-    stockGeneral.concat(celularesArray, tabletsArray, pcsArray);
+    stockGeneral = [celularesArray, tabletsArray, pcsArray];
 
     // opcion = toUpperCase.prompt("x")
     opcion = prompt("Ingrese el nombre del/los productos a buscar")
-    let resultado = stockGeneral.filter(function(filtro) {
-        return filtro.modelo == opcion.toUpperCase(); }); 
-    alert(resultado)
+    let resultado = stockGeneral.filter(producto => producto.celularesArray.modelo === opcion || producto.tabletsArrayl.modelo === opcion|| producto.pcsArray.modelo === opcion)
+    alert(resultado);
     
 
     
 }
 
+let botonControlStock = document.getElementById("boton1")
+        botonControlStock.addEventListener("click", controlStock);
 
-// console.log(controlStockGeneral);
+let botonbuscadorNombre = document.getElementById("boton2")
+        botonbuscadorNombre.addEventListener("click", buscadorNombre);
+
+//dejar las arrays con 1 solo objeto
+//crear 1 solo array de productos
+//arreglar el buscador
