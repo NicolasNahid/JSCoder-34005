@@ -1,10 +1,10 @@
 const stockGeneral = [];
 class Celulares {
     constructor(id, modelo ,precio, cantidad) {
-        this.id = parseInt(id);
+        this.id = id;
         this.modelo = modelo.toUpperCase();
-        this.precio = parseFloat(precio);
-        this.cantidad = parseInt(cantidad);
+        this.precio = precio;
+        this.cantidad = cantidad;
         this.disponible = true;
     }
     enStock() {
@@ -32,10 +32,10 @@ for (const celular of celularesArray)
 
 class Tablets {
     constructor(id, modelo ,precio, cantidad) {
-        this.id = parseInt(id);
+        this.id = id;
         this.modelo = modelo.toUpperCase();
-        this.precio = parseFloat(precio);
-        this.cantidad = parseInt(cantidad);
+        this.precio = precio;
+        this.cantidad = cantidad;
         this.disponible = true;
     }
     enStock() {
@@ -64,10 +64,10 @@ for (const celular of tabletsArray)
 
 class Pcs {
     constructor(id, modelo ,precio, cantidad) {
-        this.id = parseInt(id);
+        this.id = id;
         this.modelo = modelo.toUpperCase();
-        this.precio = parseFloat(precio);
-        this.cantidad = parseInt(cantidad);
+        this.precio = precio;
+        this.cantidad = cantidad;
         this.disponible = true;
     }
     enStock() {
