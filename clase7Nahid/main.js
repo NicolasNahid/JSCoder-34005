@@ -145,9 +145,9 @@ const buscarNombre = () => {
 
     opcion = prompt("Ingrese el nombre del producto a buscar");
     const resultado = stockGeneral.find(item => {
-        return item.modelo == opcion
+        return item.modelo == opcion.toUpperCase()
     });
-    alert(`${JSON.stringify(resultado)}`);
+    Swal.fire(`${JSON.stringify(resultado)}`);
         
 }
 
