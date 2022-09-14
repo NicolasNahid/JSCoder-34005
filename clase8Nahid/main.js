@@ -101,8 +101,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
     cantPC = pcsArray.length;
 
     opcion = prompt("Ingrese 1 para ver el Stock de Celulares \nIngrese 2 para ver el Stock de Tablets \nIngrese 3 para ver el Stock de PC");
-
-    while(opcion >=1 || opcion <=3){    
+  
         switch (opcion) {
             case "1":
                 if(cantCelulares > 0){
@@ -111,11 +110,10 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
 
                         contenedor.innerHTML = `<h3> MODELO: ${cel.modelo} </h3>
                                                 <p> PRECIO: $${cel.precio} <p>
-                                                <b> CANTIDAD: ${cel.cantidad}<b>`
+                                                <p> CANTIDAD: ${cel.cantidad}<p>`
 
                         document.body.appendChild(contenedor);
                     }
-                    // return Swal.fire(`${JSON.stringify(celularesArray)}`);
                 }
                 else{
                     return alert("No hay unidades disponibles en Stock");
@@ -124,7 +122,15 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
         
             case "2":
                 if(cantTablets > 0){
-                    return Swal.fire(`${JSON.stringify(tabletsArray)}`);
+                    for (const tab of tabletsArray) {
+                        let contenedor = document.createElement("div");
+
+                        contenedor.innerHTML = `<h3> MODELO: ${tab.modelo} </h3>
+                                                <p> PRECIO: $${tab.precio} <p>
+                                                <p> CANTIDAD: ${tab.cantidad}<p>`
+
+                        document.body.appendChild(contenedor);
+                    }
                 }
                 else{
                     return alert("No hay unidades disponibles en Stock");
@@ -133,7 +139,15 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
         
             case "3":
                 if(cantPC > 0){
-                    return Swal.fire(`${JSON.stringify(pcsArray)}`);
+                    for (const pcs of pcsArray) {
+                        let contenedor = document.createElement("div");
+
+                        contenedor.innerHTML = `<h3> MODELO: ${pcs.modelo} </h3>
+                                                <p> PRECIO: $${pcs.precio} <p>
+                                                <p> CANTIDAD: ${pcs.cantidad}<p>`
+
+                        document.body.appendChild(contenedor);
+                    }
                 }
                 else{
                     return alert("No hay unidades disponibles en Stock");
@@ -145,7 +159,7 @@ const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
             break;
         }
     }              
-} 
+
 
 
 
