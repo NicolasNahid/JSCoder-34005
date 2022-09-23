@@ -11,12 +11,9 @@ class Celulares {
         this.disponible = true;
     }
     enStock() {
-        if (this.cantidad > 0) {
-            this.disponible = true;
-        }else{
-            this.disponible = false;
-        }
+        this.cantidad > 0 ? this.disponible = true : this.disponible = false;
     }
+    
 }
 
 const celularesArray = [];
@@ -42,11 +39,7 @@ class Tablets {
         this.disponible = true;
     }
     enStock() {
-        if (this.cantidad > 0) {
-            this.disponible = true;
-        }else{
-            this.disponible = false;
-        }
+        this.cantidad > 0 ? this.disponible = true : this.disponible = false;
     }
 }
 
@@ -74,11 +67,7 @@ class Pcs {
         this.disponible = true;
     }
     enStock() {
-        if (this.cantidad > 0) {
-            this.disponible = true;
-        }else{
-            this.disponible = false;
-        }
+        this.cantidad > 0 ? this.disponible = true : this.disponible = false;
     }
 }
 
