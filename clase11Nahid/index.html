@@ -12,15 +12,32 @@
     <button id="boton2">Click para buscar productos por nombre de modelo</button>
     <h2 class="h2">Formulario para cargar un nuevo producto</h2>
     <form id="formulario">
-        <input type="number" placeholder="ID" id="idproducto" required>
-        <input type="text" placeholder="Modelo" id="modeloproducto" required>
-        <input type="number" placeholder="Precio" id="precioproducto" required>
-        <input type="number" placeholder="Cantidad" id="cantidadproducto" required>
-        <input type="submit" value="Enviar">
+        <div class="inputs">
+            <input type="number" placeholder="ID" id="idProducto" required>
+            <input type="text" placeholder="Modelo" id="modeloProducto" required>
+            <input type="number" placeholder="Precio" id="precioProducto" required>
+            <input type="number" placeholder="Cantidad" id="cantidadProducto" required>
+        </div>
+        <input type="submit" id="Enviar" value="Enviar">
     </form>
+    <table id="tblProductos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
     <h4 class="h4">Presione X para limpiar la página</h4>
     <div id="divMaestro"></div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./main.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/regproductos.js"></script>
+<script src="./js/verproductos.js"></script>
 </html>

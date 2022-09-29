@@ -214,13 +214,3 @@ document.addEventListener("keypress", function(e){
 
 
 
-let miFormulario = document.getElementById("formulario");
-miFormulario.addEventListener("submit", validarFormulario);
-
-function validarFormulario(e){
-    e.preventDefault();
-    console.log("Formulario Enviado");    
-}
-
-let idproducto = localStorage.getItem("miFormulario.value")
-console.log(miFormulario.idproducto.value);
