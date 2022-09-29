@@ -8,8 +8,21 @@
     <title>Control de Stock</title>
 </head>
 <body>
-    <button id="boton1">Click para hacer control de stock por clases</button>
-    <button id="boton2">Click para buscar productos por nombre de modelo</button>
+    <div>
+        <button id="botonControlCelulares">Click para controlar el stock de Celulares</button>
+    </div>
+    <div>
+        <button id="botonControlTablets">Click para controlar el stock de Tablets</button>
+    </div>
+    <div>
+        <button id="botonControlPcs">Click para controlar el stock de PCs</button>
+    </div>
+    <form id="formBusqueda">
+        <div>
+            <input type="text" placeholder="Busqueda" id="buscadorProducto" required> Buscar producto por nombre
+        </div>
+        <div><input type="submit" id="filtrarProducto" value="Buscar Producto"></div>
+    </form>
     <h2 class="h2">Formulario para cargar un nuevo producto</h2>
     <form id="formulario">
         <div class="inputs">
@@ -33,7 +46,7 @@
             
         </tbody>
     </table>
-    <h4 class="h4">Presione X para limpiar la página</h4>
+    <!-- <h4 class="h4">Presione X para limpiar la página</h4> -->
     <div id="divMaestro"></div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

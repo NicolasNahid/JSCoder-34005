@@ -10,7 +10,7 @@ const verProductos = () => {
     let aPrecio = JSON.parse(localStorage.getItem("precio_productos"));
     let aCantidad = JSON.parse(localStorage.getItem("cantidad_productos"));
     
-    let nCantidadProductos = aID.lenght;
+    let nCantidadProductos = aID.length;
 
     for (let i = 0; i < nCantidadProductos; i++){
         
@@ -41,4 +41,4 @@ const verProductos = () => {
     }
 };
 
-verProductos();
+// verProductos();

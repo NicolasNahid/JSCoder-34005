@@ -34,7 +34,13 @@ let miFormulario = document.getElementById("formulario");
 
 function validarFormulario(e) {
     e.preventDefault();
-    console.log("Formulario Enviado");
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Formulario Enviado',
+        showConfirmButton: false,
+        timer: 1500
+      });
 }
     
     

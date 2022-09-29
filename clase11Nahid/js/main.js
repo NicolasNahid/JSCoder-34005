@@ -86,83 +86,83 @@ for (const celular of pcsArray){
 }
 
 
-const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
+// const controlStock = (cantCelulares, cantTablets, cantPC, opcion) => {
  
-    cantCelulares = celularesArray.length;
-    cantTablets = tabletsArray.length;
-    cantPC = pcsArray.length;
+//     cantCelulares = celularesArray.length;
+//     cantTablets = tabletsArray.length;
+//     cantPC = pcsArray.length;
 
-    opcion = prompt("Ingrese 1 para ver el Stock de Celulares \nIngrese 2 para ver el Stock de Tablets \nIngrese 3 para ver el Stock de PC");
+//     opcion = prompt("Ingrese 1 para ver el Stock de Celulares \nIngrese 2 para ver el Stock de Tablets \nIngrese 3 para ver el Stock de PC");
   
-        switch (opcion) {
-            case "1":
-                if(cantCelulares > 0){
-                    for (const cel of celularesArray) {
-                        let contenedor = document.createElement("div");
+//         switch (opcion) {
+//             case "1":
+//                 if(cantCelulares > 0){
+//                     for (const cel of celularesArray) {
+//                         let contenedor = document.createElement("div");
 
-                        contenedor.innerHTML = `<h3> MODELO: ${cel.modelo} </h3>
-                                                <p> PRECIO: $${cel.precio} <p>
-                                                <p> CANTIDAD: ${cel.cantidad}<p>`
+//                         contenedor.innerHTML = `<h3> MODELO: ${cel.modelo} </h3>
+//                                                 <p> PRECIO: $${cel.precio} <p>
+//                                                 <p> CANTIDAD: ${cel.cantidad}<p>`
 
-                        divMaestro.appendChild(contenedor);
-                    }
-                }
-                else{
-                    let contenedor = document.createElement("div");
+//                         divMaestro.appendChild(contenedor);
+//                     }
+//                 }
+//                 else{
+//                     let contenedor = document.createElement("div");
 
-                    contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
-                    return divMaestro.appendChild(contenedor);
-                }
-            break;
+//                     contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+//                     return divMaestro.appendChild(contenedor);
+//                 }
+//             break;
         
-            case "2":
-                if(cantTablets > 0){
-                    for (const tab of tabletsArray) {
-                        let contenedor = document.createElement("div");
+//             case "2":
+//                 if(cantTablets > 0){
+//                     for (const tab of tabletsArray) {
+//                         let contenedor = document.createElement("div");
 
-                        contenedor.innerHTML = `<h3> MODELO: ${tab.modelo} </h3>
-                                                <p> PRECIO: $${tab.precio} <p>
-                                                <p> CANTIDAD: ${tab.cantidad}<p>`
+//                         contenedor.innerHTML = `<h3> MODELO: ${tab.modelo} </h3>
+//                                                 <p> PRECIO: $${tab.precio} <p>
+//                                                 <p> CANTIDAD: ${tab.cantidad}<p>`
 
-                        divMaestro.appendChild(contenedor);
-                    }
-                }
-                else{
-                    let contenedor = document.createElement("div");
+//                         divMaestro.appendChild(contenedor);
+//                     }
+//                 }
+//                 else{
+//                     let contenedor = document.createElement("div");
 
-                    contenedor.innerHTML =`<h3> No hay unidades disponibles en Stock <h3>`;
-                    return divMaestro.appendChild(contenedor);
-                }
-            break;
+//                     contenedor.innerHTML =`<h3> No hay unidades disponibles en Stock <h3>`;
+//                     return divMaestro.appendChild(contenedor);
+//                 }
+//             break;
         
-            case "3":
-                if(cantPC > 0){
-                    for (const pcs of pcsArray) {
-                        let contenedor = document.createElement("div");
+//             case "3":
+//                 if(cantPC > 0){
+//                     for (const pcs of pcsArray) {
+//                         let contenedor = document.createElement("div");
 
-                        contenedor.innerHTML = `<h3> MODELO: ${pcs.modelo} </h3>
-                                                <p> PRECIO: $${pcs.precio} <p>
-                                                <p> CANTIDAD: ${pcs.cantidad}<p>`
+//                         contenedor.innerHTML = `<h3> MODELO: ${pcs.modelo} </h3>
+//                                                 <p> PRECIO: $${pcs.precio} <p>
+//                                                 <p> CANTIDAD: ${pcs.cantidad}<p>`
 
-                        divMaestro.appendChild(contenedor);
-                    }
-                }
-                else{
-                    let contenedor = document.createElement("div");
+//                         divMaestro.appendChild(contenedor);
+//                     }
+//                 }
+//                 else{
+//                     let contenedor = document.createElement("div");
 
-                    contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
-                    return divMaestro.appendChild(contenedor);
-                }
-            break;
+//                     contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+//                     return divMaestro.appendChild(contenedor);
+//                 }
+//             break;
 
-            default:
-                let contenedor = document.createElement("div");
+//             default:
+//                 let contenedor = document.createElement("div");
 
-                    contenedor.innerHTML = `<h3> Producto no disponible <h3>`;
-                return divMaestro.appendChild(contenedor);
-            break;
-        }
-}             
+//                     contenedor.innerHTML = `<h3> Producto no disponible <h3>`;
+//                 return divMaestro.appendChild(contenedor);
+//             break;
+//         }
+// }             
 
 
 
@@ -171,9 +171,11 @@ const guardarLocal = (key, value) => {localStorage.setItem(key, value)};
 
 guardarLocal("productos", JSON.stringify(stockGeneral));
 
-const buscarNombre = () => {
+const buscarNombre = (e) => {
 
-    opcion = prompt("Ingrese el nombre del producto a buscar");
+    e.preventDefault();
+
+    opcion = document.getElementById("buscadorProducto").value;
     const resultado = stockGeneral.find(item => {
         return item.modelo == opcion.toUpperCase()
     });
@@ -191,13 +193,93 @@ const buscarNombre = () => {
         
 }
 
+let botonBuscarNombre = document.getElementById("formBusqueda")
+        botonBuscarNombre.addEventListener("submit", buscarNombre);
 
 
-let botonControlStock = document.getElementById("boton1")
-        botonControlStock.addEventListener("click", controlStock);
 
-let botonBuscarNombre = document.getElementById("boton2")
-        botonBuscarNombre.addEventListener("click", buscarNombre);
+
+
+const controlCelulares = (cantCelulares) => {
+    cantCelulares = celularesArray.length;
+
+    if(cantCelulares > 0){
+        limpiarDiv();
+        for (const cel of celularesArray) {
+            let contenedor = document.createElement("div");
+
+            contenedor.innerHTML = `<h3> MODELO: ${cel.modelo} </h3>
+                                    <p> PRECIO: $${cel.precio} <p>
+                                    <p> CANTIDAD: ${cel.cantidad}<p>`
+
+            divMaestro.appendChild(contenedor);
+        }
+    }
+    else{
+        let contenedor = document.createElement("div");
+
+        contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+        return divMaestro.appendChild(contenedor);
+    }
+}
+
+let botonControlCelulares = document.getElementById("botonControlCelulares")
+        botonControlCelulares.addEventListener("click", controlCelulares);
+
+const controlTablets = (cantTablets) => {
+    cantTablets = tabletsArray.length;
+
+    if(cantTablets > 0){
+        limpiarDiv();
+        for (const tab of tabletsArray) {
+            let contenedor = document.createElement("div");
+
+            contenedor.innerHTML = `<h3> MODELO: ${tab.modelo} </h3>
+                                    <p> PRECIO: $${tab.precio} <p>
+                                    <p> CANTIDAD: ${tab.cantidad}<p>`
+
+            divMaestro.appendChild(contenedor);
+        }
+    }
+    else{
+        let contenedor = document.createElement("div");
+
+        contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+        return divMaestro.appendChild(contenedor);
+    }
+}
+        
+let botonControlTablets = document.getElementById("botonControlTablets")
+        botonControlTablets.addEventListener("click", controlTablets);
+
+const controlPcs = (cantPCs) => {
+    cantPCs = pcsArray.length;
+
+    if(cantPCs > 0){
+        limpiarDiv();
+        for (const pcs of pcsArray) {
+            let contenedor = document.createElement("div");
+
+            contenedor.innerHTML = `<h3> MODELO: ${pcs.modelo} </h3>
+                                    <p> PRECIO: $${pcs.precio} <p>
+                                    <p> CANTIDAD: ${pcs.cantidad}<p>`
+
+            divMaestro.appendChild(contenedor);
+        }
+    }
+    else{
+        let contenedor = document.createElement("div");
+
+        contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+        return divMaestro.appendChild(contenedor);
+    }
+}
+        
+let botonControlPcs = document.getElementById("botonControlPcs")
+        botonControlPcs.addEventListener("click", controlPcs);
+
+
+
 
 
 
