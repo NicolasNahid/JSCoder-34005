@@ -308,28 +308,39 @@ document.addEventListener("keypress", function(e){
 
 const mostrarTodo = async () => {
     
-    const productosGenerales = await fetch('./json/data.json').then(response => response.json())
+    const productosGenerales = await fetch('./json/data.json').then(response => response.json()).then(data => {
+            data.forEach(producto => {
+                let contenedor = document.createElement("div");
+        
+                    contenedor.innerHTML = `<h3> MODELO: ${producto.modelo} </h3>
+                                            <p> PRECIO: $${producto.precio} <p>
+                                            <p> CANTIDAD: ${producto.cantidad} <p>`
+        
+                divMaestro.appendChild(contenedor);
+                
+            });
+        })}
 
 
-    if(productosGenerales > 0){
-        limpiarDiv();
-        for (const item of productosGenerales) {
-            let contenedor = document.createElement("div");
+//     if(productosGenerales > 0){
+//         limpiarDiv();
+//         for (const item of productosGenerales) {
+//             let contenedor = document.createElement("div");
 
-            contenedor.innerHTML = `<h3> MODELO: ${item.modelo} </h3>
-                                    <p> PRECIO: $${item.precio} <p>
-                                    <p> CANTIDAD: ${item.cantidad} <p>`
+//             contenedor.innerHTML = `<h3> MODELO: ${item.modelo} </h3>
+//                                     <p> PRECIO: $${item.precio} <p>
+//                                     <p> CANTIDAD: ${item.cantidad} <p>`
 
-            divMaestro.appendChild(contenedor);
-        }
-    }
-    else{
-        let contenedor = document.createElement("div");
+//             divMaestro.appendChild(contenedor);
+//         }
+//     }
+//     else{
+//         let contenedor = document.createElement("div");
 
-        contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
-        return divMaestro.appendChild(contenedor);
-    }
-}
+//         contenedor.innerHTML = `<h3> No hay unidades disponibles en Stock <h3>`;
+//         return divMaestro.appendChild(contenedor);
+//     }
+// }
 
 let botonProductosGenerales = document.getElementById("botonProductosGenerales")
         botonProductosGenerales.addEventListener("click", mostrarTodo);
